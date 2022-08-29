@@ -1,0 +1,24 @@
+name: Test CI
+
+on:
+  push:
+
+jobs:
+  libc-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          components: rust-src, llvm-tools-preview
+
+      - name: Install python dependencies
+        run: pip3 install -r script/requirements.txt
+
+      - name: Run libc test
+        run: make
