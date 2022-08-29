@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: ''
 
       - uses: actions-rs/toolchain@v1
         with:
@@ -17,8 +17,10 @@ jobs:
           toolchain: nightly
           components: rust-src, llvm-tools-preview
 
-      - name: Install python dependencies
-        run: pip3 install -r script/requirements.txt
+      - name: Install python dependencies and submodule
+        run: |
+          pip3 install -r script/requirements.txt
+          git submodule update --init
 
       - name: Run libc test
         run: make
