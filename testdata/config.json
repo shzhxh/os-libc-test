@@ -1,0 +1,5 @@
+{
+    "board_type": "qemu",
+    "debug": false,
+    "track_grading_enable": false
+}
