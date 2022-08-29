@@ -24,6 +24,7 @@ jobs:
 
       - name: Install qemu
         run: |
+          sudo apt-get update && sudo apt-get install -y ninja-build
           .github/scripts/make-qemu.sh 7.0.0
           cd qemu-7.0.0 && sudo make install
           qemu-system-riscv64 --version
