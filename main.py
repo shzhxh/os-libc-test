@@ -30,12 +30,13 @@ def main():
 
     result = json.loads(output)
     print(f"score: {result['score']}")
-    with open("detail.html", "w", encoding='utf-8') as f:
+    os.mkdir("output");
+    with open("output/detail.html", "w", encoding='utf-8') as f:
         f.write(f"<div>{result['comment']}</div>")
         f.write(f"<div>{result['detail']}</div>")
 
     clean_project(kernel)
-    webbrowser.open(os.path.join(os.getcwd(), "detail.html"))
+    # webbrowser.open(os.path.join(os.getcwd(), "output/detail.html"))
 
 
 if __name__ == '__main__':
