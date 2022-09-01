@@ -17,13 +17,12 @@ TOOLCHAIN_TGZ := $(ARCH)-linux-musl-cross.tgz
 TOOLCHAIN_URL := $(CACHE_URL)/$(TOOLCHAIN_TGZ)
 export PATH=$(shell printenv PATH):$(CURDIR)/toolchain/$(ARCH)-linux-musl-cross/bin
 
-.PHONY: libc-test test clean
+.PHONY: toolchian libc-test test clean
 
-libc-test: 
-ifeq ($(shell which $(CC)), 0)
+toolchain: 
 	if [ ! -f toolchain/$(TOOLCHAIN_TGZ) ]; then wget -P toolchain $(TOOLCHAIN_URL); fi
 	tar -xf toolchain/$(TOOLCHAIN_TGZ) -C toolchain
-endif
+libc-test:
 	cd libc-test && make disk
 
 image: libc-test

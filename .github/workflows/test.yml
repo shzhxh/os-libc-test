@@ -43,6 +43,9 @@ jobs:
           cd qemu-${{env.qemu_version}} && sudo make install
           qemu-system-riscv64 --version
 
+      - name: Install toolchain
+        run: make toolchain
+      
       - name: Run libc test
         run: make test
 
