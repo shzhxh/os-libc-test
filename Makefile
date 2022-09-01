@@ -10,8 +10,8 @@ PROJECT_PATH ?= $(CURDIR)/kernel
 ARCH ?= riscv64
 
 CC := $(ARCH)-linux-musl-gcc
-CACHE_URL := musl.cc
-# CACHE_URL := https://github.com/YdrMaster/zCore/releases/download/musl-cache
+# CACHE_URL := musl.cc
+CACHE_URL := https://github.com/YdrMaster/zCore/releases/download/musl-cache
 TOOLCHAIN_TGZ := $(ARCH)-linux-musl-cross.tgz
 TOOLCHAIN_URL := $(CACHE_URL)/$(TOOLCHAIN_TGZ)
 export PATH=$(shell printenv PATH):$(CURDIR)/toolchain/$(ARCH)-linux-musl-cross/bin
