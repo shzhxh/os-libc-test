@@ -51,7 +51,6 @@ def run_qemu1(job, sbi, os_file, fs, out):
 
 
 def run_qemu(job, sbi, os_file, fs, out):
-    subprocess.check_output("gzip -d sdcard.img.gz", shell=True)
     gg.exec(f"cp {fs} initrd.img")
     cmd = f"qemu-system-riscv64 -machine virt -kernel {os_file} -m 128M -nographic -smp 2 -bios {sbi} -drive file={fs},if=none,format=raw,id=x0  -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0"
     job.add_log(cmd, "QEMU CMD")

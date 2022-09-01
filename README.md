@@ -8,6 +8,9 @@
 
 用法
 ```bash
+git submodule update --init
+make libc-test
+make image
 pip3 install -r scripts/requirements.txt
-make [PROJECT_PATH=<你的操作系统路径>]
+make test
 ```

@@ -2,7 +2,6 @@ import json
 import os
 import subprocess
 import sys
-import webbrowser
 
 def clean_project(kernel_dir):
     file_list = ['initrd.img', 'kernel-qemu', 'os_serial_out.txt', 'sbi-qemu', 'sdcard.img']

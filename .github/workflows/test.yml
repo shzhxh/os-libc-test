@@ -44,7 +44,7 @@ jobs:
           qemu-system-riscv64 --version
 
       - name: Run libc test
-        run: make
+        run: make test
 
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4

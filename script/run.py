@@ -193,7 +193,7 @@ def run(job: gg.Job, testcase: gg.TestCases.SingleTestCase):
     #     logexec(f"{ssh_pass} scp {scp_cmd} {config['testcase_dir']}/sdcard.img.gz {host}:{port_dir}/sdcard.img.gz")
     elif config['board_type'] == 'qemu':
         os.chdir(config['submit_dir'])
-        logexec(f"cp {config['testcase_dir']}/sdcard.img.gz sdcard.img.gz")
+        logexec(f"cp {config['testcase_dir']}/sdcard.img sdcard.img")
         qemu_out, process = run_qemu(job, config["sbi_file"], "kernel-qemu", "sdcard.img", "os_serial_out.txt")
         # if qemu_out:
         #     if qemu_out.stdout:
