@@ -3,3 +3,4 @@ __pycache__/
 /output
 /rootfs
 /toolchain
+*.img

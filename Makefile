@@ -5,6 +5,7 @@
 #   libc-test : 生成libc-test测试程序。放在rootfs/$(ARCH)目录。
 #   image : 从rootfs/$(ARCH)生成镜像文件。
 #   test : 运行测例。
+#   clean : 清空编译生成的文件。
 
 PROJECT_PATH ?= $(CURDIR)/kernel
 ARCH ?= riscv64
@@ -16,14 +17,13 @@ TOOLCHAIN_TGZ := $(ARCH)-linux-musl-cross.tgz
 TOOLCHAIN_URL := $(CACHE_URL)/$(TOOLCHAIN_TGZ)
 export PATH=$(shell printenv PATH):$(CURDIR)/toolchain/$(ARCH)-linux-musl-cross/bin
 
-.PHONY: libc-test test
+.PHONY: libc-test test clean
 
 libc-test: 
-ifneq ($(shell which $(CC)), 0)
+ifeq ($(shell which $(CC)), 0)
 	if [ ! -f toolchain/$(TOOLCHAIN_TGZ) ]; then wget -P toolchain $(TOOLCHAIN_URL); fi
-endif
 	tar -xf toolchain/$(TOOLCHAIN_TGZ) -C toolchain
-	echo $(PATH)
+endif
 	cd libc-test && make disk
 
 image: libc-test
@@ -38,4 +38,8 @@ image: libc-test
 test: image
 	rm -rf output
 	python3 main.py $(PROJECT_PATH)
+
+clean:
+	cd libc-test && make clean
+	rm -f testdata/sdcard.img
 

@@ -1,9 +1,3 @@
 [submodule "kernel"]
 	path = kernel
 	url = https://github.com/shzhxh/sample-os.git
-[submodule "libc-test"]
-	path = repo/libc-test
-	url = https://github.com/rcore-os/libc-test
-[submodule "repo/busybox"]
-	path = repo/busybox
-	url = https://github.com/mirror/busybox.git
