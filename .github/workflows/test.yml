@@ -46,7 +46,7 @@ jobs:
         id: cache-toolchain
         uses: actions/cache@v3
         with: 
-          path: toolchain/riscv64-linux-musl-cross
+          path: toolchain/riscv64--musl--bleeding-edge-2020.08-1
           key: toolchain-rv64
 
       - name: Download toolchain

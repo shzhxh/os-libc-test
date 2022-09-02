@@ -14,3 +14,8 @@ make image
 pip3 install -r scripts/requirements.txt
 make test
 ```
+
+结果
+- 在网页 : https://<org_name>.github.io/<repo_name>/detail.html
+
+  注：需要先在设置里把gh-pages分支作为本仓库的Pages。
