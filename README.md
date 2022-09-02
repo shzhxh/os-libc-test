@@ -8,7 +8,8 @@
 
 用法
 ```bash
-git submodule update --init
+git submodule add <os_url> kernel   # 待测OS代码作为子模块
+git submodule update --init # 下载repo目录下的子模块
 make image
 pip3 install -r scripts/requirements.txt
 make test
